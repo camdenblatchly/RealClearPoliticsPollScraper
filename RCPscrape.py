@@ -13,37 +13,33 @@ import csv
 import time
 from datetime import datetime
 
-# Gangstas Only: Not checking ssl certification
+# Not checking ssl certification
+# RCP has ssl rating of F
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
 my_url = "https://realclearpolitics.com/epolls/latest_polls/"
 my_url_2 = "https://realclearpolitics.com/epolls/other/2018_generic_congressional_vote-6185.html#polls"
-my_url_3 = "https://projects.fivethirtyeight.com/pollster-ratings/"
 
 # opening up connnection, grabbing the page
 
 uClient = uReq(my_url)
 uClient_2 = uReq(my_url_2)
-uClient_3 = uReq(my_url_3)
 
 # offloads connection content into a variable
 
 page_html = uClient.read()
 page_html_2 = uClient_2.read()
-page_html_3 = uClient_3.read()
 
 # closes connection
 
 uClient.close()
 uClient_2.close()
-uClient_3.close()
 
 # html parsing
 
 page_soup = soup(page_html, "html.parser")
 page_soup_2 = soup(page_html_2, "html.parser")
-page_soup_3 = soup(page_html_3, "html.parser")
 
 # grabs each product
 
@@ -55,15 +51,9 @@ poll_spreads = page_soup.findAll("td", {"class":"lp-spread"})
 table_dates = page_soup.findAll("td", {"class":"date"})
 poll_tables = page_soup.findAll("table", {"class":"sortable"})
 
-
 # grabs poll population from seperate Real Clear Politics page
 
 poll_populations = page_soup_2.findAll("td", {"class":"sample"})
-
-# grabs poll rating info from 538
-
-print(page_soup_3)
-
 
 
 # holds size of each poll table
