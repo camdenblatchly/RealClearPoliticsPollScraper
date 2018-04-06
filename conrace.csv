@@ -1,0 +1,127 @@
+ID,Date,Democrat,Republican,Mode,538 Rating,Sample Subpopulation,MoE,Sponsor,Source,Headline
+3,1/24/2017,0.48,0.4,IVR/Online,B+,Likely Voters,3,,Public Policy Polling (D),
+4,1/31/2017,0.45,0.42,IVR/Online,B+,Likely Voters,3.6,,Public Policy Polling (D),
+5,2/8/2017,0.49,0.41,IVR/Online,B+,Likely Voters,3.7,,Public Policy Polling (D),
+6,2/22/2017,0.46,0.43,IVR/Online,B+,Likely Voters,3.2,,Public Policy Polling (D),
+7,3/12/2017,0.46,0.41,IVR/Online,B+,Likely Voters,3.4,,Public Policy Polling (D),
+8,3/27/2017,0.47,0.38,Live Phone,A,Registered Voters,3.3,,McClatchy/Marist,
+9,3/28/2017,0.48,0.43,IVR/Online,B+,Likely Voters,3.8,,Public Policy Polling (D),
+10,4/1/2017,0.41,0.39,Internet,-,Registered Voters,2,Politico,Morning Consult,
+11,4/9/2017,0.43,0.4,Internet,-,Registered Voters,2,Politico,Morning Consult,
+12,4/11/2017,0.4,0.37,Internet,B,Adults,3.2,Economist,YouGov,
+13,4/12/2017,0.45,0.38,Live Phone,A,Registered Voters,3.3,,McClatchy/Marist,
+14,4/15/2017,0.4,0.4,Internet,-,Registered Voters,2,Politico,Morning Consult,
+15,4/18/2017,0.47,0.41,IVR/Online,B+,Likely Voters,3.9,,Public Policy Polling (D),
+16,4/18/2017,0.38,0.32,Internet,B,Adults,3.1,Economist,YouGov,
+17,4/20/2017,0.47,0.42,IVR/Online,B-,Registered Voters,2.4,Orlando Political Observer,Gravis Marketing,
+18,4/24/2017,0.4,0.44,Internet,-,Registered Voters,2,Morning Consult,Politico,
+19,4/25/2017,0.47,0.42,Live Phone,A,Registered Voters,3,FOX News,Anderson Robbins Research/Shaw & Company Research,
+20,4/25/2017,0.39,0.34,Internet,B,Adults,3.2,Economist,YouGov,
+21,4/25/2017,0.5,0.41,Live Phone,A-,Adults,3,CNN,Opinion Research Corp,
+22,4/30/2017,0.41,0.41,Internet,-,Registered Voters,2,Morning Consult,Politico,
+23,5/2/2017,0.38,0.35,Internet,B,Adults,3.1,Economist,YouGov,
+24,5/6/2017,0.42,0.36,Internet,-,Registered Voters,2,Politico,Morning Consult,
+25,5/9/2017,0.4,0.35,Internet,B,Registered Voters,nan,Economist,YouGov,
+26,5/11/2017,0.42,0.37,Internet,-,Registered Voters,2,Politico,Morning Consult,
+27,5/11/2017,0.42,0.37,Internet,-,Registered Voters,2,Politico,Morning Consult,
+28,5/14/2017,0.49,0.38,IVR/Online,B+,Likely Voters,3.7,,Public Policy Polling (D),
+29,5/14/2017,0.42,0.35,Internet,-,Registered Voters,2,Politico,Morning Consult,
+30,5/14/2017,0.42,0.35,Internet,-,Registered Voters,2,Politico,Morning Consult,
+31,5/14/2017,0.49,0.38,IVR/Online,B+,Likely Voters,3.7,,Public Policy Polling (D),
+32,5/16/2017,0.4,0.33,Internet,B,Registered Voters,nan,Economist,YouGov,
+33,5/16/2017,0.4,0.33,Internet,B,Registered Voters,nan,Economist,YouGov,
+34,5/22/2017,0.41,0.37,Internet,-,Registered Voters,2,Politico,Morning Consult,
+35,5/23/2017,0.38,0.36,Internet,B,Registered Voters,nan,Economist,YouGov,
+36,5/23/2017,0.38,0.36,Internet,B,Registered Voters,nan,Economist,YouGov,
+37,5/30/2017,0.39,0.33,Internet,B,Registered Voters,nan,Economist,YouGov,
+38,6/6/2017,0.41,0.37,Internet,B,Registered Voters,nan,Economist,YouGov,
+39,6/11/2017,0.5,0.4,IVR/Online,B+,Likely Voters,3.4,,Public Policy Polling (D),
+40,6/13/2017,0.38,0.36,Internet,B,Registered Voters,nan,Economist,YouGov,
+41,6/20/2017,0.5,0.42,Live Phone,A-,Adults,3.54,NBC News,WSJ,
+42,6/20/2017,0.38,0.35,Internet,B,Adults,3.1,Economist,YouGov,
+43,6/25/2017,0.48,0.38,Live Phone,B-,Adults,3.2,PBS News Hour,NPR,
+44,6/27/2017,0.47,0.41,Live Phone,A,Registered Voters,3,Fox News,Anderson Robbins Research and Shaw & Company Research,
+45,6/27/2017,0.41,0.35,Internet,B,Adults,3.1,Economist,YouGov,
+46,7/4/2017,0.37,0.35,Internet,B,Adults,4,Economist,YouGov,
+47,7/13/2017,0.52,0.38,Live Phone,B,Registered Voters,3.2,ABC,Washington Post,
+48,7/18/2017,0.478,0.388,Internet,,Registered Voters,,Economist,YouGov,
+49,7/25/2017,0.4,0.34,Internet,B,Registered Voters,3.1,Economist,YouGov,
+50,8/10/2017,0.51,0.42,Live Phone,,Registered Voters,,CNN,SSRS,
+51,8/15/2017,0.48,0.396,Live Phone,A,Registered Voters,3.1,,The Marist Poll,
+52,8/16/2017,0.41,0.33,Internet,B,Registered Voters,3.2,Economist,YouGov,
+53,8/23/2017,0.39,0.33,Internet,B,Adults,3.2,Economist,YouGov,
+54,8/23/2017,0.49,0.35,Internet,B+,Registered Voters ,3.3,,Public Policy Polling (D),
+55,8/24/2017,0.45,0.38,Live Phone,B,Registered Voters,3.1,George Washington University,The Tarrance Group/Lake Research Partners,
+56,8/30/2017,0.4,0.32,Internet,B,Registered Voters,3.1,Economist,YouGov,
+57,9/6/2017,0.39,0.33,Internet,B,Registered Voters,3.1,Economist,YouGov,
+58,9/13/2017,0.4,0.31,Internet,B,Registered Voters,3.2,Economist,Yougov,
+59,9/20/2017,0.39,0.33,Internet,B,Registered Voters,3.1,Economist,YouGov,
+60,9/21/2017,0.48,0.42,Phone,A-,Registered Voters,3.6,NBC News,WSJ,
+61,9/27/2017,0.4,0.34,Internet,B,Registered Voters,,Economist,YouGov,
+62,9/28/2017,0.4,0.34,Live Phone,B+,Registered Voters,3.3,,Public Policy Polling (D),
+63,10/4/2017,0.39,0.32,Internet,B,Registered Voters,3.1,Economist,YouGov,
+64,10/11/2017,0.4,0.33,Internet,B,Registered Voters,3.1,Economist,YouGov,
+65,10/17/2017,0.41,0.33,Internet,B,Registered Voters,,Economist,YouGov,
+66,10/25/2017,0.5,0.35,Live Phone,A,Registered Voters,3,Fox News,Anderson Robbins Research and Shaw & Company Research,
+67,10/25/2017,0.4,0.33,Internet,B,Registered Voters,3.1,Economist,YouGov,
+68,10/25/2017,0.36,0.28,Internet,A-,Registered Voters,,Reuters,Ipsos,
+69,10/30/2017,0.48,0.41,Live Phone,A-,Registered Voters,3.6,NBC News,WSJ,
+70,11/1/2017,0.51,0.4,Live Phone,B,Adults,3.5,ABC News,Washington Post,
+71,11/1/2017,0.4,0.31,Internet,A-,Adults,2.6,Reuters,Ipsos,
+72,11/1/2017,0.39,0.36,Internet,B,Registered Voters,3.1,Economist,YouGov,
+73,11/7/2017,0.4,0.33,Internet,B,Registered Voters,3.1,Economist,YouGov,
+74,11/9/2017,0.51,0.36,Live Phone,A,Registered Voters,3,,Marist,
+75,11/13/2017,0.51,0.38,Live Phone,A-,Registered Voters,3,,Quinnipiac,
+76,11/14/2017,0.38,0.31,Internet,A-,Adults,,,Reuters/Ipsos,
+77,11/14/2017,0.42,0.34,Internet,B,Registered Voters,3.1,Economist,YouGov,
+78,11/15/2017,0.43,0.4,Live Phone,A,Adults,3.1,NPR/PBS,Marist,
+79,11/21/2017,0.42,0.33,Internet,B,Registered Voters,,Economist,YouGov,
+80,11/22/2017,0.37,0.28,,A-,Adults,,Reuters,Ipsos,
+81,11/28/2017,0.36,0.3,Internet,A-,Adults,,Reuters,Ipsos,
+82,11/28/2017,0.41,0.35,Internet,B,Registered Voters,3.1,Economist,YouGov,
+83,11/29/2017,0.5,0.36,Live Phone,A-,Registered Voters,3.1,,Quinnipiac,
+84,12/5/2017,0.37,0.31,Internet,A-,Adults,,Reuters,Ipsos,
+85,12/5/2017,0.42,0.36,Internet,B,Adults,3.4,Economist,YouGov,
+86,12/7/2017,0.5,0.37,Live Phone,A,Adults,2.8,,Marist,
+87,1/16/2018,0.37,0.32,Internet,A-,Adults,2.8,Reuters,Ipsos,
+88,1/17/2018,0.49,0.43,Live Phone,A-,Registered Voters,3.5,NBC News,WSJ,
+89,1/18/2018,0.49,0.44,Live Phone,A-,Registered Voters,3.8,,CNN,
+90,1/18/2018,0.51,0.39,Live Phone,B,Registered Voters,3.5,ABC News,Washington Post,
+91,1/23/2018,0.38,0.3,Live Phone,A-,Adults,2,Reuters,Ipsos,
+92,1/23/2018,0.51,0.38,Live Phone,A-,Registered Voters,3.3,,Quinnipiac,
+93,1/23/2018,0.41,0.37,Internet,B,Registered Voters,3.1,Economist,YouGov,
+94,1/23/2018,0.44,0.38,Live Phone,A,Registered Voters,,Fox News,Anderson Robbins Research and Shaw & Company Research,
+95,1/30/2018,0.47,0.45,Live Phone,A+,Adults,3.5,,Monmouth,
+96,2/6/2018,0.43,0.37,Internet,B,Adults,3.3,Economist,YouGov,
+97,2/6/2018,0.38,0.31,Internet,A-,Adults,2,Reuters,Ipsos,
+98,2/6/2018,0.49,0.4,Live Phone,A-,Registered Voters,3.3,,Quinnipiac,
+99,2/7/2018,0.49,0.38,Live Phone,,Registered Voters,4.1,,Marist,
+100,02/21/2018,0.41,0.36,,C+,Registered Voters,6.8,,Harvard-Harris
+101,02/21/2018,0.38,0.30,Internet,A-,Registered Voters,4.2,Reuters,Ipsos
+102,02/21/2018,0.43,0.35,Internet,B,Registered Voters,6.6,Economist,YouGov
+103,02/23/2018,0.46,0.39,Live Phone,A,Registered Voters,5.3,,Marist
+104,02/26/2018,0.54,0.38,Live Phone,A-,Registered Voters,5.4,,CNN
+105,02/28/2018,0.40,0.38,Internet,B,Registered Voters,6.6,Economist,YouGov
+106,02/28/2018,0.37,0.31,Internet,A-,Registered Voters,4.2,Reuters,Ipsos
+107,03/1/2018,0.47,0.32,Live Phone,B+,Registered Voters,5.2,USA Today,Suffolk
+108,03/7/2018,0.43,0.37,Internet,B,Registered Voters,6.6,Economist,YouGov
+109,03/7/2018,0.48,0.38,Live Phone,A-,Adults,4.6,,Quinnipiac
+110,03/7/2018,0.50,0.41,Live Phone,A+,Adults,5.4,,Monmouth
+111,03/8/2018,0.46,0.40,,C+,Registered Voters,5.2,,Rasmussen Reports
+112,03/8/2018,0.38,0.31,Internet,A-,Adults,4.2,Reuters,Ipsos
+113,03/13/2018,0.49,0.40,Live Phone,B,Registered Voters,3.4,GWU,Battleground
+114,03/14/2018,0.38,0.30,Internet,A-,Adults,4.2,Reuters,Ipsos
+115,03/14/2018,0.43,0.38,Internet,B,Registered Voters,6.6,Economist,YouGov
+116,03/18/2018,0.50,0.40,Live Phone,A-,Registered Voters,4.1,NBC News,Wall St. Jrnl
+117,03/21/2018,0.49,0.43,Live Phone,A-,Registered Voters,4.6,,Quinnipiac
+118,03/21/2018,0.44,0.38,Internet,B,Likely Voters,6.6,Economist,YouGov
+119,03/22/2018,0.40,0.37,Internet,A-,Adults,4.2,Reuters,Ipsos
+120,03/23/2018,0.44,0.39,Live Phone,A,Registered Voters,5.3,,Marist
+121,03/25/2018,0.46,0.41,Live Phone,A,Registered Voters,6.3,,FOX News
+122,03/27/2018,0.50,0.39,Live Phone,A-,Adults,2.3,,PPP (D)
+123,03/28/2018,0.42,0.35,Internet,B,Adults,6.6,Economist,YouGov
+124,03/29/2018,0.50,0.44,Live Phone,A-,Registered Voters,5.4,,CNN
+125,03/29/2018,0.42,0.35,Internet,A-,Registered Voters,4.2,Reuters,Ipsos
+126,04/2/2018,0.45,0.34,,C+,Registered Voters,6.8,,Harvard-Harris
+127,04/4/2018,0.43,0.34,Internet,A-,Registered Voters,4.2,Reuters,Ipsos
+128,04/4/2018,0.43,0.36,Internet,B,Registered Voters,6.6,Economist,YouGov

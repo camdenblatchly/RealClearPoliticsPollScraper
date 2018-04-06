@@ -12,6 +12,8 @@ import ssl
 import csv
 import time
 from datetime import datetime
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
 
 # Not checking ssl certification
 # RCP has ssl rating of F
@@ -71,8 +73,20 @@ scrapedPollsList = []
 # holds polls already in the csv
 oldPollsList = []
 
-# list to hold the dates of the polls currently in the csv
+# holds the dates of the polls currently in the csv
 oldDatesList = []
+
+# holds the name pollsters, per 538
+pollsterNameList = []
+
+# holds the rating of pollsters, per 538
+pollsterRatingList = []
+
+# holds the method
+pollsterMethodList = []
+
+# holds the margin of error
+pollsterMoEList = []
 
 
 # store the number of races in each table in tableLengthList
@@ -145,7 +159,7 @@ def formatDem (str):
 	del RepName
 	Dem_percent,comma=Dem_percent.split(',')
 	del comma
-	Dem_percent = "." + Dem_percent
+	Dem_percent = "0." + Dem_percent
 	return Dem_percent
 
 def formatRep (str):
@@ -153,7 +167,7 @@ def formatRep (str):
 	DemName,Dem_percent,RepName,Rep_percent=str.split(' ')
 	del DemName
 	del RepName
-	Rep_percent = "." + Rep_percent
+	Rep_percent = "0." + Rep_percent
 	return Rep_percent
 
 # Takes split input like "Economist/YouGov"
@@ -208,16 +222,62 @@ def formatPopulation (str):
 		return "Likely Voters"
 
 
+def findPollsterIndex (str):
+	name_count = 0
+	max_ratio_count = 0
+
+	match_ratio = 0
+	max_ratio = 0
+
+	for name in pollsterNameList:
+		match_ratio = fuzz.partial_ratio(str, name)
+		if match_ratio > max_ratio:
+			max_ratio = match_ratio
+			max_ratio_count = name_count
+
+		name_count = name_count + 1
+
+	return max_ratio_count
+
+			
+
+# holds highest index in file
+highest_index = 0
 # store dates of polls currently in the csv
-with open("outputFile.csv", "r", encoding="utf8") as fp:
+with open("conrace.csv", "r", encoding="utf8") as fp:
 	reader = csv.reader(fp)
 	for row in reader:
 		if (len(row) > 0):
-			oldDatesList.append(row[0])	
-	
+			oldDatesList.append(row[1])	
+			highest_index = row[0]
+
 # find the most recent date in the current csv
 most_recent_date = oldDatesList[-1]
 
+
+# store the name and rating of polls, per 538
+with open("pollster-ratings.csv", "r") as fn:
+	reader = csv.reader(fn)
+	for row in reader:
+		pollsterNameList.append(row[1])
+		pollsterRatingList.append(row[11])
+		pollsterMoEList.append(row[7])
+
+		pollster_method = ""
+
+		if row[3] == "yes":
+			pollster_method = "Live Phone"
+
+		if row[4] == "yes":
+			if len(pollster_method) > 0:
+				pollster_method = pollster_method + "/Internet"
+			else:
+				pollster_method = "Internet"
+
+		pollsterMethodList.append(pollster_method)
+
+
+highest_index = int(highest_index)
 
 for count in range(0, total_row_num):
 
@@ -235,21 +295,36 @@ for count in range(0, total_row_num):
 	pollPopulation = poll_populations[count + 1].string
 	pollPopulation = formatPopulation(pollPopulation)
 
+	pollster_index = findPollsterIndex(pollSource)
+	pollRating = pollsterRatingList[pollster_index]
+	pollMethod = pollsterMethodList[pollster_index]
+	pollError = pollsterMoEList[pollster_index]
+
+	pollError = pollError[0:3]
+
 	if raceName == "2018 Generic Congressional Vote":
 		RepScore = formatRep(pollResult)
 		DemScore = formatDem(pollResult)
 
-		pollInstance = [pollDate, DemScore, RepScore, pollPopulation, pollSponsor, pollSource]
+		pollInstance = [pollDate, DemScore, RepScore, pollMethod, pollRating, pollPopulation, pollError, pollSponsor, pollSource]
 		scrapedPollsList.append(pollInstance)
 
 # reverse so that the data gets input with oldest at bottom and newest at top
 scrapedPollsList.reverse()
 
+poll_index = highest_index + 1
+
+for poll in scrapedPollsList:
+	poll.insert(0, poll_index)
+	poll_index = poll_index + 1
+
+
+
 # write new polls to the csv
-with open("outputFile.csv", "a", newline='') as f:
+with open("conrace.csv", "a", newline='') as f:
 	writer=csv.writer(f, delimiter=',')
 	for poll in scrapedPollsList:
-		poll_date_formatted = time.strptime(poll[0], "%m/%d/%Y")
+		poll_date_formatted = time.strptime(poll[1], "%m/%d/%Y")
 		most_recent_date_formatted = time.strptime(most_recent_date, "%m/%d/%Y")
 		if poll_date_formatted > most_recent_date_formatted:
 			writer.writerow(poll)
