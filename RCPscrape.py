@@ -135,7 +135,7 @@ def formatDate (str):
 	if month == "July":
 		date = date + "07/"
 	if month == "August":
-		date == date + "08/"
+		date = date + "08/"
 	if month == "September":
 		date = date + "09/"
 	if month == "October":
@@ -174,29 +174,41 @@ def formatRep (str):
 # returns poll source
 def formatSource (str):
 	slash_index = str.find('/')
+	slash_count = str.count('/')
+	slash_index_two = str.find('/', slash_index + 1)
 
 	poll_sponsor = ""
 	poll_source = ""
 
-	if slash_index > 0:
-		poll_sponsor,poll_source=str.split('/')
+	if slash_count >= 2:
+		poll_sponsor = str[:slash_index_two];
+		poll_source = str[slash_index_two+1:len(str)]
 	else:
-		poll_source = str
+		if slash_index > 0:
+			poll_sponsor,poll_source=str.split('/')
+		else:
+			poll_source = str
 
 	return poll_source
 
 # Takes split input like "Economist/YouGov"
 # returns poll sponsor
 def formatSponsor (str):
+	slash_count = str.count('/')
 	slash_index = str.find('/')
+	slash_index_two = str.find('/', slash_index + 1)
 
 	poll_sponsor = ""
 	poll_source = ""
 
-	if slash_index > 0:
-		poll_sponsor,poll_source=str.split('/')
+	if slash_count >= 2:
+		poll_sponsor = str[:slash_index_two];
+		poll_source = str[slash_index_two+1:len(str)]
 	else:
-		poll_sponsor = ""
+		if slash_index > 0:
+			poll_sponsor,poll_source=str.split('/')
+		else:
+			poll_sponsor = ""
 
 	return poll_sponsor
 
