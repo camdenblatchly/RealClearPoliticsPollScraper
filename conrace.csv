@@ -1,4 +1,4 @@
-ID,Date,Democrat,Republican,Mode,538 Rating,Sample Subpopulation,MoE,Sponsor,Source,Headline
+ID,Date,Democrat,Republican,Mode,Rating,Sample_Subpopulation,MoE,Sponsor,Source,Headline
 3,1/24/2017,0.48,0.4,IVR/Online,B+,Likely Voters,3,,Public Policy Polling (D),
 4,1/31/2017,0.45,0.42,IVR/Online,B+,Likely Voters,3.6,,Public Policy Polling (D),
 5,2/8/2017,0.49,0.41,IVR/Online,B+,Likely Voters,3.7,,Public Policy Polling (D),
@@ -125,3 +125,32 @@ ID,Date,Democrat,Republican,Mode,538 Rating,Sample Subpopulation,MoE,Sponsor,Sou
 126,04/2/2018,0.45,0.34,,C+,Registered Voters,6.8,,Harvard-Harris
 127,04/4/2018,0.43,0.34,Internet,A-,Registered Voters,4.2,Reuters,Ipsos
 128,04/4/2018,0.43,0.36,Internet,B,Registered Voters,6.6,Economist,YouGov
+129,08/23/2018,0.41,0.37,Internet,A-,Registered Voters,4.2,Reuters,Ipsos
+130,08/26/2018,0.50,0.42,Live Phone,A-,Adults,4.1,NBC News,Wall St. Jrnl
+131,08/28/2018,0.45,0.37,,C+,Registered Voters,6.8,,Harvard-Harris
+132,08/29/2018,0.47,0.34,Internet,A-,Adults,4.2,Reuters,Ipsos
+133,08/29/2018,0.46,0.41,,C+,Registered Voters,5.2,,Rasmussen Reports
+134,08/29/2018,0.45,0.39,Internet,B,Adults,6.6,Economist,YouGov
+135,09/1/2018,0.50,0.39,Live Phone,A-,Registered Voters,2.3,IBD,TIPP
+136,09/3/2018,0.52,0.39,,B,Likely Voters,7.8,,Emerson
+137,09/4/2018,0.50,0.39,Live Phone,B+,Registered Voters,5.2,USA Today,Suffolk
+138,09/4/2018,0.52,0.38,Live Phone,A+,Registered Voters,3.0,ABC News,Wash Post
+139,09/5/2018,0.45,0.40,Internet,B,Registered Voters,6.6,Economist,YouGov
+140,09/5/2018,0.44,0.35,Internet,A-,Adults,4.2,Reuters,Ipsos
+141,09/5/2018,0.46,0.42,,C+,Registered Voters,5.2,,Rasmussen Reports
+142,09/6/2018,0.45,0.43,Live Phone,A+,Likely Voters,4.6,Grinnell,Selzer
+143,09/12/2018,0.49,0.41,Internet,A-,Registered Voters,4.2,Reuters,Ipsos
+144,09/12/2018,0.52,0.38,Live Phone,A-,Registered Voters,4.6,,Quinnipiac
+145,09/12/2018,0.46,0.42,,C+,Registered Voters,5.2,,Rasmussen Reports
+146,09/12/2018,0.50,0.38,Live Phone,A,Registered Voters,5.3,NPR,Marist
+147,09/12/2018,0.44,0.41,Internet,B,Registered Voters,6.6,Economist,YouGov
+148,09/13/2018,0.52,0.42,Live Phone,A-,Registered Voters,5.4,,CNN
+149,09/19/2018,0.45,0.41,Internet,B,Registered Voters,6.6,Economist,YouGov
+150,09/19/2018,0.48,0.41,Internet,A-,Registered Voters,4.2,Reuters,Ipsos
+151,09/19/2018,0.47,0.42,,C+,Registered Voters,5.2,,Rasmussen Reports
+152,09/23/2018,0.51,0.43,Live Phone,A-,Likely Voters,4.1,NBC News,Wall St. Jrnl
+153,09/23/2018,0.49,0.42,Live Phone,A,Registered Voters,6.3,,FOX News
+178,09/26/2018,0.46,0.38,Internet,B,Likely Voters,6.6,Economist,YouGov
+179,09/26/2018,0.46,0.43,,C+,Likely Voters,5.2,,Rasmussen Reports
+180,09/26/2018,0.48,0.41,Live Phone,A,Registered Voters,5.3,NPR/PBS,Marist
+208,09/28/2018,0.51,0.42,Live Phone,B-,Registered Voters,4.2,,Gallup
