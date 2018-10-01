@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Congressional Race Tracker</title>
+		<script src="http://d3js.org/d3.v4.js"></script>
+		<link rel="stylesheet" href="rcp_stylesheet.css">
+	</head>
+	<body>
+
+		<h1>Who is winning the race for Congress?</h1>
+		<div class="wrapper">
+			<button type="button" id="RepButton">Republicans</button>
+			<button type="button" id="DemButton">Democrats</button>
+		</div>
+		<div id="plot1"></div>
+
+		<script type="text/javascript">
+
+			var w = 600;
+			var h = 400;
+			var padding = 40;
+			var trans_time = 500;
+
+			var dataset, xScale, yScale, xAxis, yAxis;
+
+			// strings to dates
+			var parseTime = d3.timeParse("%m/%d/%Y");
+
+			// For converting Dates to strings
+			var formatTime = d3.timeFormat("%b %e");
+
+			// for turning into percentage
+			var formatPercentage = d3.format(".0%")
+
+			var rowConverter = function(d) {
+				return {
+					ID: d.ID,
+					Date: parseTime(d.Date),
+					Democrat: +d.Democrat,
+					Republican: +d.Republican,
+					Mode: d.Mode,
+					Rating: d.Rating,
+					Sample_Subpopulation: d.Sample_Subpopulation,
+					MoE: d.MoE,
+					Sponsor: d.Sponsor,
+					Source: d.Source,
+					Headline: d.Headline
+				};
+			}
+
+			d3.csv("conrace_fall.csv", rowConverter, function(data) {
+				console.log(data);
+
+				dataset = data;
+
+				// find start and end dates
+				var startDate = d3.min(dataset, function(d) { return d.Date; });
+				var endDate = d3.max(dataset, function(d) { return d.Date; });
+
+				// set up scales
+				xScale = d3.scaleTime()
+					.domain([
+						d3.timeDay.offset(startDate, -1),
+						d3.timeDay.offset(endDate, 1)
+						])
+					.range([padding, w - padding]);
+
+				preScale = d3.scaleLinear()
+					.domain([0, d3.max(dataset, function(d) { return d.Democrat; })])
+					.range([0, 1]);
+
+				yScale = d3.scaleLinear()
+					.domain([0, 1])
+					.range([h - padding, padding]);
+
+				// set up axis
+				xAxis = d3.axisBottom()
+					.scale(xScale)
+					.ticks(5)
+					.tickFormat(formatTime);
+
+				yAxis = d3.axisLeft()
+					.scale(yScale)
+					.ticks(10)
+					.tickFormat(formatPercentage);
+
+				
+				// create svg
+				var svg = d3.select("#plot1")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h);
+
+				
+				// guide lines
+				svg.selectAll("line")
+					.data(dataset)
+					.enter()
+					.append("line")
+					.attr("x1", function(d) {
+						return xScale(d.Date);
+					})
+					.attr("x2", function(d) {
+						return xScale(d.Date);
+					})
+					.attr("y1", h - padding)
+					.attr("y2", function(d) {
+						return yScale(d.Democrat);
+					})
+					.attr("stroke", "#ddd")
+					.attr("stroke-width", 1);
+				
+
+				svg.selectAll("circle")
+					.data(dataset)
+					.enter()
+					.append("circle")
+					.attr("cx", function(d) {
+						return xScale(d.Date);
+					})
+					.attr("cy", function(d) {
+						return yScale(d.Democrat);
+					})
+					.attr("r", 4)
+					.attr("fill", "blue")
+					.attr("opacity", 0.5);
+
+				svg.append("g")
+					.attr("class", "axis")
+					.attr("transform", "translate(0," + (h - padding) + ")")
+					.call(xAxis);
+
+				svg.append("g")
+					.attr("class", "axis")
+					.attr("transform", "translate(" + padding + ",0)")
+					.call(yAxis);
+
+
+				d3.select("#RepButton")
+				.on("click", function() {
+
+					// guide lines
+					svg.selectAll("line")
+						.transition()
+						.duration(trans_time)
+						.attr("y2", function(d) {
+							return yScale(d.Republican);
+						});
+
+					
+					svg.selectAll("circle")
+						.transition()
+						.duration(trans_time)
+						.attr("cy", function(d) {
+							return yScale(d.Republican);
+						})
+						.attr("fill", "red");
+					   				
+				});
+
+				d3.select("#DemButton")
+				.on("click", function() {
+
+					// guide lines
+					svg.selectAll("line")
+						.transition()
+						.duration(trans_time)
+						.attr("y2", function(d) {
+							return yScale(d.Democrat);
+						});
+
+					
+					svg.selectAll("circle")
+						.transition()
+						.duration(trans_time)
+						.attr("cy", function(d) {
+							return yScale(d.Democrat);
+						})
+						.attr("fill", "blue");
+					   				
+				});
+
+
+
+
+
+			});
+					
+
+		</script>
+	</body>
+</html>
