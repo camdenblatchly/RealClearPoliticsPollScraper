@@ -13,13 +13,18 @@
 			<button type="button" id="RepButton">Republicans</button>
 			<button type="button" id="DemButton">Democrats</button>
 		</div>
-		<div id="plot1"></div>
+		<div id="plot1">
+			<div id="tooltip" class="hidden">
+				<p><span id="hval"><strong>Poll Information</strong></span></p>
+				<p><span id="value">100</span></p>
+			</div>
+		</div>
 
 		<script type="text/javascript">
 
-			var w = 600;
-			var h = 400;
-			var padding = 40;
+			var w = 700;
+			var h = 500;
+			var padding = 20;
 			var trans_time = 500;
 
 			var dataset, xScale, yScale, xAxis, yAxis;
@@ -64,7 +69,7 @@
 						d3.timeDay.offset(startDate, -1),
 						d3.timeDay.offset(endDate, 1)
 						])
-					.range([padding, w - padding]);
+					.range([padding, w-padding]);
 
 				preScale = d3.scaleLinear()
 					.domain([0, d3.max(dataset, function(d) { return d.Democrat; })])
@@ -122,9 +127,31 @@
 					.attr("cy", function(d) {
 						return yScale(d.Democrat);
 					})
-					.attr("r", 4)
+					.attr("r", 8)
 					.attr("fill", "blue")
-					.attr("opacity", 0.5);
+					.attr("opacity", 0.5)
+					.on("mouseover", function(d) {
+
+					//Get this bar's x/y values, then augment for the tooltip
+					var xPosition = parseFloat(d3.select(this).attr("cx")) + w/4 + 50;
+					var yPosition = parseFloat(d3.select(this).attr("cy")) + h/4;
+					//Update the tooltip position and value
+					d3.select("#tooltip")
+						.style("left", xPosition + "px")
+						.style("top", yPosition + "px")						
+						.select("#value")
+						.text("Democrat: " + d.Democrat + "\nRepublican: " + d.Republican);
+
+					d3.select("#tooltip")
+						.select("#hval")
+						.text(d.Source + "(" + d.Rating + ")");
+			   
+					//Show the tooltip
+					d3.select("#tooltip").classed("hidden", false);
+					})
+					.on("mouseout", function() {
+						d3.select("#tooltip").classed("hidden", true);
+					});
 
 				svg.append("g")
 					.attr("class", "axis")

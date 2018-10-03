@@ -13,7 +13,11 @@ html {
 }
 
 body {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+circle:hover {
+  fill: orange;
 }
 
 .wrapper {
@@ -44,5 +48,24 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+#tooltip {
+  position: absolute;
+  width: 180px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  pointer-events: none;
+}
+
+#tooltip.hidden {
+  display: none;
+}
+
+#tooltip p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
 }
 
