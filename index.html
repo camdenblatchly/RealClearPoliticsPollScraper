@@ -24,7 +24,7 @@
 
 			var w = 700;
 			var h = 500;
-			var padding = 20;
+			var padding = 60;
 			var trans_time = 500;
 
 			var dataset, xScale, yScale, xAxis, yAxis;
@@ -133,7 +133,7 @@
 					.on("mouseover", function(d) {
 
 					//Get this bar's x/y values, then augment for the tooltip
-					var xPosition = parseFloat(d3.select(this).attr("cx")) + w/4 + 50;
+					var xPosition = parseFloat(d3.select(this).attr("cx")) + w/4;
 					var yPosition = parseFloat(d3.select(this).attr("cy")) + h/4;
 					//Update the tooltip position and value
 					d3.select("#tooltip")
