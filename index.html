@@ -17,7 +17,7 @@
 		<div class="wrapper">
 			<button type="button" id="RepButton">Republicans</button>
 			<button type="button" id="DemButton">Democrats</button>
-			<button type="button" id="LineButton">Line</button>
+			<button type="button" id="LineButton">Both</button>
 		</div>
 		<div id="plot1">
 			<div id="tooltip" class="hidden">
@@ -155,7 +155,7 @@
 
 						//Get this bar's x/y values, then augment for the tooltip
 						var xPosition = (parseFloat(d3.select(this).attr("cx")) + w/5);
-						var yPosition = (parseFloat(d3.select(this).attr("cy")) + 20);
+						var yPosition = (parseFloat(d3.select(this).attr("cy")) + h/5);
 						console.log(xPosition)
 						console.log(yPosition)
 						//Update the tooltip position and value
@@ -347,15 +347,7 @@
 					  .append("g")
 					  .attr("class", "mouse-per-line");
 
-					// the circle
-					mousePerLine.append("circle")
-					  .attr("r", 7)
-					  .style("stroke", function(d) {
-					   return "white";
-					  })
-					  .style("fill", "none")
-					  .style("stroke-width", "1px")
-					  .style("opacity", "0");
+									
 
 					// the text
 					mousePerLine.append("text")
@@ -423,7 +415,7 @@
 
 					        // update the text with y value
 					        d3.select(this).select('text')
-					          .text(y.invert(pos.y).toFixed(2));
+					          .text( d3.format(".0%") (y.invert(pos.y).toFixed(2)));
 
 					        // return position
 					        return "translate(" + mouse[0] + "," + pos.y +")";
