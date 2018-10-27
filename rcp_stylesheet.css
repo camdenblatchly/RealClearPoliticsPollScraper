@@ -1,10 +1,21 @@
+#plot1 {
+  margin: 0 auto;
+  display: table;
+}
+
+#plot2 {
+  display: none;
+  margin: 0 auto;
+}
+
+
 * {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; 
   font-style: normal; 
 }
 
 h1 {
-  font-family: Arial, sans-serif;
+  font-family: 'Proxima Nova', sans-serif;
   text-align: center;
 }
 
@@ -20,11 +31,11 @@ circle:hover {
   fill: orange;
 }
 
-.wrapper {
-  text-align: center;
+a {
+  color: #4267C3;
 }
 
-#plot1 {
+.wrapper {
   text-align: center;
 }
 
@@ -37,6 +48,7 @@ circle:hover {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  width: 150px;
 }
 
 #DemButton {
@@ -44,6 +56,19 @@ circle:hover {
   border: none;
   color: white;
   padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 150px;
+}
+
+#LineButton {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  width: 150px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -67,5 +92,36 @@ circle:hover {
   margin: 0;
   font-size: 16px;
   line-height: 20px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+#info {
+  text-align: center;
+  font-size: 12px;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+ .axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+    
+.x.axis path {
+  display: none;
 }
 

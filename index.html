@@ -5,13 +5,19 @@
 		<title>Congressional Race Tracker</title>
 		<script src="http://d3js.org/d3.v4.js"></script>
 		<link rel="stylesheet" href="rcp_stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="fonts\fonts.css">
 	</head>
 	<body>
 
 		<h1>Who is winning the race for Congress?</h1>
+		<div id="info">
+			<p>This website tracks the latests polls for the generic congressional vote, which asks respondants
+			 to name the party they would support in an election.</p>
+		</div>
 		<div class="wrapper">
 			<button type="button" id="RepButton">Republicans</button>
 			<button type="button" id="DemButton">Democrats</button>
+			<button type="button" id="LineButton">Line</button>
 		</div>
 		<div id="plot1">
 			<div id="tooltip" class="hidden">
@@ -19,13 +25,21 @@
 				<p><span id="value">100</span></p>
 			</div>
 		</div>
+		<div id="plot2"> </div>
+		<div class="footer">
+			<p>Data for this project was scraped from RealClearPolitics. Project details and code can be 
+				found <a href="https://github.com/camdenblatchly/RealClearPoliticsPollScraper">here</a>.</p>
+		</div>
 
 		<script type="text/javascript">
 
-			var w = 700;
-			var h = 500;
 			var padding = 60;
 			var trans_time = 500;
+
+			// set the dimensions and margins of the graph
+			var margin = {top: 20, right: 20, bottom: 30, left: 50},
+			w = 1000 - margin.left - margin.right,
+			h = 500 - margin.top - margin.bottom;
 
 			var dataset, xScale, yScale, xAxis, yAxis;
 
@@ -53,6 +67,10 @@
 					Headline: d.Headline
 				};
 			}
+
+
+
+			//////////////////////////////////////////////////////////////////////
 
 			d3.csv("conrace_fall.csv", rowConverter, function(data) {
 				console.log(data);
@@ -94,8 +112,11 @@
 				// create svg
 				var svg = d3.select("#plot1")
 					.append("svg")
-					.attr("width", w)
-					.attr("height", h);
+					.attr("width", w + margin.left + margin.right)
+						.attr("height", h + margin.top + margin.bottom)
+					.append("g")
+						.attr("transform",
+									"translate(" + margin.left + "," + margin.top + ")");
 
 				
 				// guide lines
@@ -132,22 +153,24 @@
 					.attr("opacity", 0.5)
 					.on("mouseover", function(d) {
 
-					//Get this bar's x/y values, then augment for the tooltip
-					var xPosition = parseFloat(d3.select(this).attr("cx")) + w/4;
-					var yPosition = parseFloat(d3.select(this).attr("cy")) + h/4;
-					//Update the tooltip position and value
-					d3.select("#tooltip")
-						.style("left", xPosition + "px")
-						.style("top", yPosition + "px")						
-						.select("#value")
-						.text("Democrat: " + d.Democrat + "\nRepublican: " + d.Republican);
+						//Get this bar's x/y values, then augment for the tooltip
+						var xPosition = (parseFloat(d3.select(this).attr("cx")) + w/5);
+						var yPosition = (parseFloat(d3.select(this).attr("cy")) + 20);
+						console.log(xPosition)
+						console.log(yPosition)
+						//Update the tooltip position and value
+						d3.select("#tooltip")
+							.style("left", xPosition + "px")
+							.style("top", yPosition + "px")						
+							.select("#value")
+							.text("Democrat: " + d.Democrat + "\nRepublican: " + d.Republican);
 
-					d3.select("#tooltip")
-						.select("#hval")
-						.text(d.Source + "(" + d.Rating + ")");
-			   
-					//Show the tooltip
-					d3.select("#tooltip").classed("hidden", false);
+						d3.select("#tooltip")
+							.select("#hval")
+							.text(d.Source + "(" + d.Rating + ")");
+				   
+						//Show the tooltip
+						d3.select("#tooltip").classed("hidden", false);
 					})
 					.on("mouseout", function() {
 						d3.select("#tooltip").classed("hidden", true);
@@ -183,6 +206,12 @@
 							return yScale(d.Republican);
 						})
 						.attr("fill", "red");
+
+
+					var sheet = document.styleSheets[0];
+					var rules = sheet.cssRules;
+					rules[0].style.display="table";
+					rules[1].style.display="none";
 					   				
 				});
 
@@ -205,7 +234,202 @@
 							return yScale(d.Democrat);
 						})
 						.attr("fill", "blue");
+
+					var sheet = document.styleSheets[0];
+					var rules = sheet.cssRules;
+					rules[0].style.display="table";
+					rules[1].style.display="none";
 					   				
+				});
+
+				d3.select("#LineButton")
+				.on("click", function() {
+
+					var sheet = document.styleSheets[0];
+					var rules = sheet.cssRules;
+					rules[0].style.display="none";
+					rules[1].style.display="table";
+					   				
+				});
+
+
+				////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+				var svg2 = d3.select("#plot2").append("svg")
+						.attr("width", w + margin.left + margin.right)
+						.attr("height", h + margin.top + margin.bottom)
+					.append("g")
+						.attr("transform",
+									"translate(" + margin.left + "," + margin.top + ")");
+
+				// Get the data
+				d3.csv("conrace_fall.csv", rowConverter, function(error, data) {
+					if (error) throw error;
+
+
+					// set the ranges
+					var x = d3.scaleTime()
+						.domain([
+								d3.timeDay.offset(startDate, -1),
+								d3.timeDay.offset(endDate, 1)
+								])
+						.range([padding, w-padding]);
+
+					var y = d3.scaleLinear()
+						.domain([0, 1])
+						.range([h-padding, padding]);
+
+					// define the 1st line
+					var valueline = d3.line()
+							.x(function(d) { return x(d.Date); })
+							.y(function(d) { return y(d.Democrat); });
+
+					// define the 2nd line
+					var valueline2 = d3.line()
+							.x(function(d) { return x(d.Date); })
+							.y(function(d) { return y(d.Republican); });
+
+
+					// Scale the range of the data
+					x.domain(d3.extent(data, function(d) { return d.Date; }));
+					y.domain([0, 1]);
+
+					// find start and end dates
+					var startDate = d3.min(dataset, function(d) { return d.Date; });
+					var endDate = d3.max(dataset, function(d) { return d.Date; });
+
+					// Add the valueline path.
+					svg2.append("path")
+							.data([data])
+							.attr("class", "line")
+							.attr("d", valueline);
+
+					// Add the valueline2 path.
+					svg2.append("path")
+							.data([data])
+							.attr("class", "line")
+							.style("stroke", "red")
+							.attr("d", valueline2);
+
+					svg2.append("g")
+					.attr("class", "axis")
+					.attr("transform", "translate(0," + (h - padding) + ")")
+					.call(xAxis);
+					// Add the Y Axis
+					svg2.append("g")
+					.attr("class", "axis")
+					.attr("transform", "translate(" + padding + ",0)")
+					.call(yAxis);
+
+
+
+
+					// append a g for all the mouse over nonsense
+					var mouseG = svg2.append("g")
+					  .attr("class", "mouse-over-effects");
+
+					// this is the vertical line
+					mouseG.append("path")
+					  .attr("class", "mouse-line")
+					  .style("stroke", "black")
+					  .style("stroke-width", "1px")
+					  .style("opacity", "0");
+
+					// keep a reference to all our lines
+					var lines = document.getElementsByClassName('line');
+
+					// here's a g for each circle and text on the line
+					var mousePerLine = mouseG.selectAll('.mouse-per-line')
+					  .data(data)
+					  .enter()
+					  .append("g")
+					  .attr("class", "mouse-per-line");
+
+					// the circle
+					mousePerLine.append("circle")
+					  .attr("r", 7)
+					  .style("stroke", function(d) {
+					   return "white";
+					  })
+					  .style("fill", "none")
+					  .style("stroke-width", "1px")
+					  .style("opacity", "0");
+
+					// the text
+					mousePerLine.append("text")
+					  .attr("transform", "translate(10,3)");
+
+					// rect to capture mouse movements
+					mouseG.append('svg2:rect')
+					  .attr('width', (w-padding))
+					  .attr('height', (h-padding))
+					  .attr('fill', 'none')
+					  .attr('pointer-events', 'all')
+					  .on('mouseout', function() { // on mouse out hide line, circles and text
+					    d3.select(".mouse-line")
+					      .style("opacity", "0");
+					    d3.selectAll(".mouse-per-line circle")
+					      .style("opacity", "0");
+					    d3.selectAll(".mouse-per-line text")
+					      .style("opacity", "0");
+					  })
+					  .on('mouseover', function() { // on mouse in show line, circles and text
+					    d3.select(".mouse-line")
+					      .style("opacity", "1");
+					    d3.selectAll(".mouse-per-line circle")
+					      .style("opacity", "1");
+					    d3.selectAll(".mouse-per-line text")
+					      .style("opacity", "1");
+					  })
+					  .on('mousemove', function() { // mouse moving over canvas
+					    var mouse = d3.mouse(this);
+
+					    // move the vertical line
+					    d3.select(".mouse-line")
+					      .attr("d", function() {
+					        var d = "M" + mouse[0] + "," + (h-padding);
+					        d += " " + mouse[0] + "," + padding;
+					        return d;
+					      });
+
+					    // position the circle and text
+					    d3.selectAll(".mouse-per-line")
+					      .attr("transform", function(d, i) {
+					        console.log(w/mouse[0])
+					        var xDate = x.invert(mouse[0]),
+					            bisect = d3.bisector(function(d) { return d.Date; }).right;
+					            idx = bisect(d.Democrat, xDate);
+
+					        // since we are use curve fitting we can't relay on finding the points like I had done in my last answer
+					        // this conducts a search using some SVG path functions
+					        // to find the correct position on the line
+					        // from http://bl.ocks.org/duopixel/3824661
+					        var beginning = 0,
+					            end = lines[i].getTotalLength(),
+					            target = null;
+
+					        while (true){
+					          target = Math.floor((beginning + end) / 2);
+					          pos = lines[i].getPointAtLength(target);
+					          if ((target === end || target === beginning) && pos.x !== mouse[0]) {
+					              break;
+					          }
+					          if (pos.x > mouse[0])      end = target;
+					          else if (pos.x < mouse[0]) beginning = target;
+					          else break; //position found
+					        }
+
+					        // update the text with y value
+					        d3.select(this).select('text')
+					          .text(y.invert(pos.y).toFixed(2));
+
+					        // return position
+					        return "translate(" + mouse[0] + "," + pos.y +")";
+					      });
+					  });
+
 				});
 
 

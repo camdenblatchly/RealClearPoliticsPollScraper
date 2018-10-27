@@ -28,3 +28,28 @@ ID,Date,Democrat,Republican,Mode,Rating,Sample_Subpopulation,MoE,Sponsor,Source,
 179,09/26/2018,0.46,0.43,,C+,Likely Voters,5.2,,Rasmussen Reports
 180,09/26/2018,0.48,0.41,Live Phone,A,Registered Voters,5.3,NPR/PBS,Marist
 208,09/28/2018,0.51,0.42,Live Phone,B-,Registered Voters,4.2,,Gallup
+233,09/30/2018,0.45,0.36,,C+,Likely Voters,6.8,,Harvard-Harris
+234,10/1/2018,0.45,0.37,,C+,Likely Voters,6.8,,Harvard-Harris
+235,10/2/2018,0.49,0.42,Live Phone,A-,Registered Voters,4.6,,Quinnipiac
+250,10/3/2018,0.45,0.40,Internet,B,Registered Voters,6.6,Economist,YouGov
+251,10/3/2018,0.50,0.38,Internet,A-,Likely Voters,4.2,Reuters,Ipsos
+252,10/3/2018,0.48,0.42,Live Phone,A,Registered Voters,5.3,NPR/PBS,Marist
+253,10/3/2018,0.47,0.42,,C+,Adults,5.2,,Rasmussen Reports
+254,10/4/2018,0.45,0.43,Live Phone,A-,Registered Voters,2.3,IBD,TIPP
+255,10/5/2018,0.50,0.42,,B,Registered Voters,7.8,,Emerson
+256,10/9/2018,0.54,0.41,Live Phone,A-,Registered Voters,5.4,,CNN
+257,10/10/2018,0.47,0.41,Internet,B,Registered Voters,6.6,Economist,YouGov
+258,10/10/2018,0.50,0.38,Internet,A-,Likely Voters,4.2,Reuters,Ipsos
+259,10/10/2018,0.45,0.45,,C+,Registered Voters,5.2,,Rasmussen Reports
+260,10/14/2018,0.53,0.42,Live Phone,A+,Registered Voters,3.0,ABC News,Wash Post
+261,10/16/2018,0.42,0.36,Live Phone,A+,Likely Voters,3.0,,CNBC
+274,10/17/2018,0.46,0.41,Internet,B,Registered Voters,6.6,Economist,YouGov
+275,10/17/2018,0.51,0.40,Internet,A-,Registered Voters,4.2,Reuters,Ipsos
+276,10/17/2018,0.49,0.42,Live Phone,A,Likely Voters,6.3,,FOX News
+277,10/17/2018,0.45,0.44,,C+,Registered Voters,5.2,,Rasmussen Reports
+278,10/21/2018,0.50,0.41,Live Phone,A-,Registered Voters,4.1,NBC News,Wall St. Jrnl
+279,10/24/2018,0.47,0.41,Internet,B,Registered Voters,6.6,Economist,YouGov
+280,10/24/2018,0.47,0.44,,C+,Likely Voters,5.2,,Rasmussen Reports
+281,10/25/2018,0.51,0.43,Live Phone,B+,Registered Voters,5.2,USA Today,Suffolk
+282,10/25/2018,0.49,0.42,Internet,A-,Likely Voters,4.2,Reuters,Ipsos
+283,10/26/2018,0.50,0.40,Live Phone,A,Registered Voters,5.3,NPR/PBS,Marist
